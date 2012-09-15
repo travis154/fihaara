@@ -1,0 +1,53 @@
+#title {
+  text-align: center;
+  border-bottom: solid 1px #f0f0f0;
+  margin-bottom: 10px;
+}
+.market-row {
+  background: #f0f0f0;
+}
+.market-row1 {
+  height: 100px;
+}
+.market-row2 {
+  height: 200px;
+}
+.market-row3 {
+  height: 300px;
+}
+.market-row4 {
+  height: 400px;
+}
+.market-row5 {
+  height: 500px;
+}
+.market-row6 {
+  height: 600px;
+}
+.market-row7 {
+  height: 700px;
+}
+.market-row8 {
+  height: 800px;
+}
+.market-row9 {
+  height: 900px;
+}
+.market-product-box {
+  background: #a0a0a0;
+  width: 188px;
+  height: 100px;
+  display: inline-block;
+}
+.market-product-box:hover {
+  background: #f0f0f0;
+}
+.market-product-box-selected {
+  background: #f00;
+}
+.market-product-box-merged {
+  background: #008000;
+}
+.invisible {
+  visibility: hidden;
+}
