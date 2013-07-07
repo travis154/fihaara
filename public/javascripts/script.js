@@ -6,8 +6,11 @@ socket.on('disconnect', function(){
 $(function(){
 	$("#row").click(function(){
 		//$('.container').append(jade.render('designer-row'));
-		var row = new market.row(5);
+		var row = new market.row(4);
 		$('#rows').append(row.generate());
+		//row.render([2,2],[2,3],[2,1],[2,1],[2,1],[2,1],[2,1]);
+		//row.render([2,1],[2,4],[2,2],[2,1],[1,2],[1,2]);
+		row.render([2,2],[4,2],[2,1],[2,2],[2,1]);
 	})
 	
 	$("body").on('click','.market-product-box',function(){
@@ -38,7 +41,25 @@ var market = {
 					ret.push(dom);
 				}
 				ret.push($("<button class='btn btn-info market-product-mergebox'>Merge Selected</button>"))
-				return ret;
+				var parent = $("<div class='design-row' />").append(ret);
+				return parent;
+			},
+			render:function(){
+				var width = 188
+				  , height = 100;
+				for(var i = 0; i < arguments.length; i++){
+					console.log(arguments[i]);
+					var div = $('<div />');
+					div.css({
+						display:'inline-block',
+						width: width * arguments[i][1],
+						height: height * arguments[i][0],
+						background:randomColor(),
+						float:'left'
+					});
+					div.text(i)
+					$('#sample').append(div).css("font-size",0);
+				}
 			}
 		}
 	}

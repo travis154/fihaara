@@ -4,7 +4,49 @@ block content
 	section.container
 		header
 			section#title
-				h2 My Awesome Shop Name
-		button.btn#row Create a row
-		section#rows
-		
+				h2 the page 
+			
+		section.row
+			section.span3
+				button.btn.btn-block New product
+				ul
+					li
+						a(href='') Requests
+					li
+						a(href='') All products
+					li
+						a(href='') Pages
+					li
+						a(href='') Statistics
+			section.span6
+				h4 New Item
+				div.form(method='post').form-horizontal
+					div.control-group
+						label.control-label Name
+						div.controls
+							input(type='text', name='realname', placeholder='Name of your product')
+					div.control-group
+						label.control-label Price
+						div.controls
+							input(type='text', name='realname', placeholder='Value in MVR')
+					div.control-group
+						label.control-label Quantity
+						div.controls
+							input(type='text', name='realname', placeholder='')
+					div.control-group
+						label.control-label Brief
+						div.controls
+							input(type='text', name='realname', placeholder='')
+					div.control-group
+						label.control-label Description
+						div.controls
+							textarea
+					div.control-group
+						label.control-label Expire
+						div.controls
+							input(type='text', name='realname', placeholder='')
+					div.control-group
+						label.control-label Properties
+						div.controls
+							input(type='text', name='realname', placeholder='')
+
