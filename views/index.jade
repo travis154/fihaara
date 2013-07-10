@@ -18,7 +18,7 @@ block content
 						a(href='') Pages
 					li
 						a(href='') Statistics
-			section.span6
+			section.span9
 				h4 New Item
 				div.form(method='post').form-horizontal
 					div.control-group
@@ -48,7 +48,16 @@ block content
 					div.control-group
 						label.control-label Properties
 						div.controls
-							input(type='text', name='realname', placeholder='')
 							div
-								button.btn Add property
-
+								input(type='text', placeholder='Name')
+							table.table.table-bordered
+								thead
+									tr
+										td Name
+										td Price
+								tbody#properties
+									tr
+										td(contenteditable="true") &nbsp;
+										td(contenteditable="true") &nbsp;
+							div
+								button.btn#add-property Add property
