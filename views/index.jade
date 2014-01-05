@@ -3,61 +3,7 @@ extends layout
 block content
 	section.container
 		header
-			section#title
+			section S
 				h2 the page 
 			
 		section.row
-			section.span3
-				button.btn.btn-block New product
-				ul
-					li
-						a(href='') Requests
-					li
-						a(href='') All products
-					li
-						a(href='') Pages
-					li
-						a(href='') Statistics
-			section.span9
-				h4 New Item
-				div.form(method='post').form-horizontal
-					div.control-group
-						label.control-label Name
-						div.controls
-							input(type='text', name='realname', placeholder='Name of your product')
-					div.control-group
-						label.control-label Price
-						div.controls
-							input(type='text', name='realname', placeholder='Value in MVR')
-					div.control-group
-						label.control-label Quantity
-						div.controls
-							input(type='text', name='realname', placeholder='')
-					div.control-group
-						label.control-label Brief
-						div.controls
-							input(type='text', name='realname', placeholder='')
-					div.control-group
-						label.control-label Description
-						div.controls
-							textarea
-					div.control-group
-						label.control-label Expire
-						div.controls
-							input(type='text', name='realname', placeholder='')
-					div.control-group
-						label.control-label Properties
-						div.controls
-							div
-								input(type='text', placeholder='Name')
-							table.table.table-bordered
-								thead
-									tr
-										td Name
-										td Price
-								tbody#properties
-									tr
-										td(contenteditable="true") &nbsp;
-										td(contenteditable="true") &nbsp;
-							div
-								button.btn#add-property Add property

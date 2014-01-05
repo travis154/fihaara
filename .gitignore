@@ -1,2 +1,8 @@
 node_modules
 *~
+bower_components
+public/javascripts/*
+!public/javascripts/web.js
+public/stylesheets/*
+!public/stylesheets/style.styl
+public/fonts/*
