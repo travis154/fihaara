@@ -1,0 +1,21 @@
+{
+  "name": "market",
+  "main": "market.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/iulogy/fihaara",
+  "authors": [
+    "Iuthisaam Mohamed Saeed <maldivianist@gmail.com>"
+  ],
+  "description": "client stuff",
+  "license": "MIT",
+ 	"directory" : "public/components",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "*~"
+  ]
+}

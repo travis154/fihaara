@@ -16,7 +16,7 @@ describe('User', function(){
 
 
 describe('Image', function(){
-	var img_id = new mongoose.Types.ObjectId;
+	var img_id = new mongoose.Types.ObjectId();
 	var data = {
 		_id:img_id,
 		filename:'sunflower.jpg',
