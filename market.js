@@ -8,7 +8,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , io = require('socket.io')
-  , jade_browser = require('jade-browser');
+  , jade_browser = require('jade-browser')
+  , _ = require('underscore')
 
 var app = express();
 
@@ -39,6 +40,67 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/manage/requests', function(req,res){
+	res.render('requests');
+});
+app.get('/manage/products', renderMerchant);
+app.get('/manage/pages', renderMerchant);
+app.get('/statistics/pages', renderMerchant);
+app.get('/statistics/sales', renderMerchant);
+app.get('/statistics/traffic', renderMerchant);
+app.get('/misc/history', renderMerchant);
+
+function renderMerchant(req,res,next){
+	var url = req.url;
+	var menus = [
+		{
+			parent:"Manage",
+			children:[
+				{
+					name: "Requests",
+					url: "/manage/requests"
+				},
+				{
+					name: "Products",
+					url: "/manage/products"
+				},
+				{
+					name: "Pages",
+					url: "/manage/pages"
+				}
+			]
+		},
+		{
+			parent:"Statistics",
+			children:[
+				{
+					name: "Sales",
+					url: "/statistics/sales"
+				},
+				{
+					name: "Traffic",
+					url: "/statistics/traffic"
+				}
+			]
+		},
+		{
+			parent:"Misc",
+			children:[
+				{
+					name: "History",
+					url: "/misc/history"
+				}
+			]
+		}
+	]
+	
+	var requested = {
+		url:req.url,
+		menus:menus
+	};
+	res.render('index', requested);
+}
+
 app.get('/templates.js',function(req,res,next){
 	jade_browser('/templates.js', '**',{root: __dirname + '/views/components', minify: true})(req,res,next);
 });

@@ -1,9 +1,17 @@
 extends layout
 
 block content
-	section.container
-		header
-			section S
-				h2 the page 
-			
+	header(style='background:red')
+		section.container
+			h2 Tester 
+	section.container	
 		section.row
+			section.col-md-2.menu
+				-each menu in menus
+					h3=menu.parent
+					ul.list-unstyled
+						-each child in menu.children
+							li
+								a(href=child.url, class=child.class)=child.name						
+			section.col-md-10
+				include treemap

@@ -1,66 +1,45 @@
-var socket = io.connect('http://localhost:3000');
-socket.on('disconnect', function(){
-	socket.on('connect',function(){window.location.reload(true);} )
-});
+
 
 $(function(){
-	$("#row").click(function(){
-		//$('.container').append(jade.render('designer-row'));
-		var row = new market.row(4);
-		$('#rows').append(row.generate());
-		//row.render([2,2],[2,3],[2,1],[2,1],[2,1],[2,1],[2,1]);
-		//row.render([2,1],[2,4],[2,2],[2,1],[1,2],[1,2]);
-		row.render([2,2],[4,2],[2,1],[2,2],[2,1]);
-	})
-	
-	$("body").on('click','.market-product-box',function(){
-		var self = $(this);
-		if(!self.hasClass('market-product-box-selected'))
-			self.addClass('market-product-box-selected');
-		else
-			self.removeClass('market-product-box-selected');
-	});
-	$("body").on('click','.market-product-mergebox',function(){
-		var self = $(this), parent = self.parent();
-		parent.find('.market-product-box-selected').removeClass('market-product-box-selected').addClass('market-product-box-merged').css('background', randomColor());
+	var btn = '<button type="button" style="cursor:col-resize" class="resize-horizontal">divide horizontal</button><button type="button" style="cursor:row-resize" class="resize-vertical">divide vertical</button>';
+	$("body").on('click', '.resize-horizontal, .resize-vertical', function(e){
+		var type = $(this).hasClass("resize-horizontal") ? "horizontal" : "vertical";
+		
+		var box = $(this).parent();
+		var height = box.get(0).style.height;
+		var width = box.get(0).style.width;
+		var top = box.get(0).style.top;
+		var left = box.get(0).style.left;
+			
+		height = parseInt(height);
+		width = parseInt(width);
+		top = parseInt(top);
+		left = parseInt(left);
+		
+		var sub_width = type == "vertical" ? width/2 : width;
+		var sub_height = type == "horizontal" ? height/2 : height;
+		var sub_top = type == "horizontal" ? top + sub_height : top;
+		var sub_left = type == "vertical" ? left + sub_width : left;
+		
+		
+		var element1 = $("<div />");
+		element1.css("width",  sub_width + "px");
+		element1.css("height", sub_height + "px");
+		element1.css("top", top);
+		element1.css("left", left);
+		element1.append(btn);
+
+		var element2 = $("<div />");
+		element2.css("width",  sub_width + "px");
+		element2.css("height", sub_height + "px");
+		element2.css("top", sub_top);
+		element2.css("left", sub_left);
+		element2.append(btn);
+		
+		box.remove();
+		$(".treemap").append(element1);
+		$(".treemap").append(element2);		
+		
 	});
 });
-function randomColor(){
-	return 'rgb('+ (Math.random() * 255 << 0.5) +','+ (Math.random() * 255 << 0.5) +','+ (Math.random() * 255 << 0.5) +')'
-}
-var market = {
 
-	row : function(rows){
-		this.rows = rows * 5 || 4 * 5;
-		var self = this;
-		return {
-			generate:function(){
-				var ret = [];
-				for(var i = 0; i < self.rows; i++){
-					var dom = $(jade.render('designer-row'));
-					ret.push(dom);
-				}
-				ret.push($("<button class='btn btn-info market-product-mergebox'>Merge Selected</button>"))
-				var parent = $("<div class='design-row' />").append(ret);
-				return parent;
-			},
-			render:function(){
-				var width = 188
-				  , height = 100;
-				for(var i = 0; i < arguments.length; i++){
-					console.log(arguments[i]);
-					var div = $('<div />');
-					div.css({
-						display:'inline-block',
-						width: width * arguments[i][1],
-						height: height * arguments[i][0],
-						background:randomColor(),
-						float:'left'
-					});
-					div.text(i)
-					$('#sample').append(div).css("font-size",0);
-				}
-			}
-		}
-	}
-}
