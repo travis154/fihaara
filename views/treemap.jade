@@ -9,8 +9,11 @@
 		div(style="width:400px;height:400px;top:400px;left:400px;")
 		div(style="width:400px;height:200px;top:400px;left:0;")
 		div(style="width:400px;height:200px;top:600px;left:0;")
+section
+	button(type='button').height-add add height
+	button(type='button').height-remove remove height
 section.treemap
-	div(style="width:800px;height:800px;top:0;left:0;")
+	div(style="width:800px;height:400px;top:0;left:0;", data-level="0")
 		button(type='button', style='cursor:col-resize').resize-horizontal divide horizontal
 		button(type='button', style='cursor:row-resize').resize-vertical divide vertical
 
