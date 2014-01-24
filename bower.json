@@ -8,7 +8,7 @@
   ],
   "description": "client stuff",
   "license": "MIT",
- 	"directory" : "public/components",
+  "directory": "public/components",
   "private": true,
   "ignore": [
     "**/.*",
@@ -17,5 +17,8 @@
     "test",
     "tests",
     "*~"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.3"
+  }
 }
