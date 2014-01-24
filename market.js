@@ -40,9 +40,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/manage/requests', function(req,res){
-	res.render('requests');
-});
+app.get('/manage/requests',renderMerchant);
 app.get('/manage/products', renderMerchant);
 app.get('/manage/pages', renderMerchant);
 app.get('/statistics/pages', renderMerchant);
@@ -98,7 +96,7 @@ function renderMerchant(req,res,next){
 		url:req.url,
 		menus:menus
 	};
-	res.render('index', requested);
+	res.render('merchant-' + req.url.split('/').pop(), requested);
 }
 
 app.get('/templates.js',function(req,res,next){

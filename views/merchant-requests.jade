@@ -1,0 +1,75 @@
+extends index
+
+block stuff
+	h1 Requests 
+	section.btn-group(data-toggle='buttons')
+		label.btn.btn-success.active
+			input(type="radio", name="type", value="Normal")
+			| New Requests
+		label.btn.btn-success
+			input(type="radio", name="type", value="Supervisor")
+			| All Requests
+	section.btn-group(data-toggle='buttons').pull-right
+		label.btn.btn-link.active
+			input(type="radio", name="type", value="Normal")
+			| Pending
+		label.btn.btn-link
+			input(type="radio", name="type", value="Supervisor")
+			| Delivered
+		label.btn.btn-link
+			input(type="radio", name="type", value="Supervisor")
+			| Payment Recieved			
+	section.no-request
+		h4 You have no new request!
+	section.request-box
+		table.table.table-bordered
+			thead
+				tr
+					th #21
+					th 
+						| Status
+						section.btn-group(data-toggle='buttons')
+							label.btn.btn-link.active
+								input(type="radio", name="type", value="Normal")
+								| Pending
+							label.btn.btn-link
+								input(type="radio", name="type", value="Supervisor")
+								| Delivered
+							label.btn.btn-link
+								input(type="radio", name="type", value="Supervisor")
+								| Payment Recieved			
+						
+			tbody
+				tr
+					td(colspan=2)
+						table.table
+							thead
+								tr
+									th #
+									th Item
+									th Qty
+									th Price
+									th Subtotal
+							tbody
+								tr
+									td 1
+									td Victorias Secret
+									td 1
+									td 250.00
+									td 250.00
+								tr
+									td 2
+									td Gillete 20 bottle
+									td 50
+									td 10.00
+									td 500.00
+								tr.total-row
+									td &nbsp;
+									td &nbsp;
+									td &nbsp;
+									td Total
+									td 500.00
+									
+				tr
+					td add new
+					td total

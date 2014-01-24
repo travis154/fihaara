@@ -1,6 +1,7 @@
 node_modules
 *~
 bower_components
+public/components
 public/javascripts/*
 !public/javascripts/web.js
 public/stylesheets/*
