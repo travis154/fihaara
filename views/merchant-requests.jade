@@ -46,10 +46,17 @@ block stuff
 				tr
 					td(colspan=2)
 						h4 Delivery
-						section.request-delivery
-							small Add customer
-							small Add address
-							small Add contact information
+						section.extender.request-delivery
+							section(data-role="extender-content")
+							section(data-role="extender-labels")
+								small(data-template="1") Add customer
+								small(data-template="2", data-append="body") Add address
+							section(data-role='extender-templates').hide
+								section(data-template="1")
+									h2 Your template here
+								section(data-template="2")
+									h2 Your template here
+									
 									
 			tbody
 				tr

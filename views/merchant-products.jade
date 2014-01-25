@@ -1,0 +1,65 @@
+extends index
+
+block stuff
+	h1 Requests 
+	section.btn-group(data-toggle='buttons')
+		label.btn.btn-success.active
+			input(type="radio", name="type", value="Normal")
+			| New Product
+		label.btn.btn-success
+			input(type="radio", name="type", value="Supervisor")
+			| All Products
+	section.btn-group(data-toggle='buttons').pull-right
+		label.btn.btn-link.active
+			input(type="radio", name="type", value="Normal")
+			| Pending
+		label.btn.btn-link
+			input(type="radio", name="type", value="Supervisor")
+			| Delivered
+		label.btn.btn-link
+			input(type="radio", name="type", value="Supervisor")
+			| Payment Recieved
+	hr	
+	section.row
+		section.col-md-9
+			form.form-horizontal(role='form', parsley-validate)#new-product-form
+				section.form-group
+					label.col-sm-3.control-label Product Name
+					section.col-sm-5
+						input(type='text', required).form-control#name
+				section.form-group
+					label.col-sm-3.control-label Description
+					section.col-sm-5
+						textarea(required).form-control
+				section.form-group
+					label.col-sm-3.control-label Category
+					section.col-sm-5
+						input(type='text', required).form-control#name
+				section.form-group
+					label.col-sm-3.control-label Price
+					section.col-sm-5
+						input(type='text', required).form-control#name
+				section.form-group
+					label.col-sm-3.control-label Photos
+					section.col-sm-5
+						button(type="button").btn Add Photos
+			section.form-group
+				label.col-sm-3.control-label
+				section.col-sm-5
+					section.extender.request-delivery
+						section(data-role="extender-labels")
+							small(data-append="#new-product-form", data-template="1") Add Brochure
+							small(data-append="#new-product-form", data-template="2") Add address
+							small(data-append="#new-product-form", data-template="3") Add contact information
+						section(data-role='extender-templates').hide
+							section(data-template="1")
+								section.form-group
+									label.col-sm-3.control-label Description
+									section.col-sm-5
+										textarea(required).form-control
+							section(data-template="2")
+								section.form-group
+									label.col-sm-3.control-label Description
+									section.col-sm-5
+										textarea(required).form-control
+
