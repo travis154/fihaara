@@ -25,7 +25,10 @@ block stuff
 		table.table.table-bordered
 			thead
 				tr
-					th #21
+					th.middle
+						h3 #21
+						hr
+						section Mar 23, 2014
 					th 
 						| Status
 						section.btn-group(data-toggle='buttons')
@@ -37,11 +40,22 @@ block stuff
 								| Delivered
 							label.btn.btn-link
 								input(type="radio", name="type", value="Supervisor")
-								| Payment Recieved			
-						
+								| Payment Recieved		
+						section.btn-group.pull-right
+							button(type='button').btn.btn-danger Dismiss
+				tr
+					td(colspan=2)
+						h4 Delivery
+						section.request-delivery
+							small Add customer
+							small Add address
+							small Add contact information
+									
 			tbody
 				tr
 					td(colspan=2)
+						section
+							
 						table.table
 							thead
 								tr
@@ -70,6 +84,3 @@ block stuff
 									td Total
 									td 500.00
 									
-				tr
-					td add new
-					td total
