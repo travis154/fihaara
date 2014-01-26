@@ -6,5 +6,5 @@ public/javascripts/*
 !public/javascripts/web.js
 !public/javascripts/iulogy*.js
 public/stylesheets/*
-!public/stylesheets/style.styl
+!public/stylesheets/*.styl
 public/fonts/*
