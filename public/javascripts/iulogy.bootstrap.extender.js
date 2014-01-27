@@ -30,8 +30,11 @@
 			var template = small.data().template;
 			var appendTarget = small.data().append;
 			$(appendTarget||content).append(templates.find("[data-template="+template+"]").html());
-			small.off();
-			small.remove();
+			console.log(small.data())
+			if(small.data().dismiss){
+				small.off();
+				small.remove();
+			}
 		});
 	}
 
@@ -77,6 +80,21 @@
 			var self = $(this);
 			self.extender(self.data());
 		});
+	});
+	$(document).on('click.iulogy.bs.extenter.data-api', '[data-role="extender-labels"] > small', function(e){
+		var small = $(this);
+		var parent = small.parent().parent();
+		var templates = parent.find("[data-role=extender-templates]");
+		var labels = parent.find("[data-role=extender-labels]");
+		var content = parent.find("[data-role=extender-content]");
+		var template = small.data().template;
+		var appendTarget = small.data().append;
+		$(appendTarget||content).append(templates.find("[data-template="+template+"]").html());
+		console.log(small.data())
+		if(small.data().dismiss){
+			small.off();
+			small.remove();
+		}
 	});
 
 }(jQuery);

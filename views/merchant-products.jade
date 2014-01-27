@@ -22,44 +22,82 @@ block stuff
 	hr	
 	section.row
 		section.col-md-9
-			form.form-horizontal(role='form', parsley-validate)#new-product-form
+			form.form-horizontal(role='form', parsley-validate)
+				section#new-product-form
+					section.form-group
+						label.col-sm-3.control-label Product Name
+						section.col-sm-5
+							input(type='text', required).form-control#name
+					section.form-group
+						label.col-sm-3.control-label Description
+						section.col-sm-5
+							textarea(required).form-control
+					section.form-group
+						label.col-sm-3.control-label Category
+						section.col-sm-5
+							input(type='text', required).form-control#name
+					section.form-group
+						label.col-sm-3.control-label Price
+						section.col-sm-5
+							input(type='text', required).form-control#name
+					section.form-group
+						label.col-sm-3.control-label Photos
+						section.col-sm-5
+							button(type="button").btn Add Photos
 				section.form-group
-					label.col-sm-3.control-label Product Name
+					label.col-sm-3.control-label
 					section.col-sm-5
-						input(type='text', required).form-control#name
+						section.extender.request-delivery
+							section(data-role="extender-labels")
+								small(data-append="#new-product-form", data-template="1") Add Brochure
+								small(data-append="#new-product-form", data-template="2") Add address
+								small(data-append="#new-product-form", data-template="3") Add contact information
+							section(data-role='extender-templates').hide
+								section(data-template="1")
+									section.form-group
+										label.col-sm-3.control-label Description
+										section.col-sm-5
+											textarea(required).form-control
+								section(data-template="2")
+									section.form-group
+										label.col-sm-3.control-label Description
+										section.col-sm-5
+											textarea(required).form-control
+				section#new-product-property-form
 				section.form-group
-					label.col-sm-3.control-label Description
+					label.col-sm-3.control-label
 					section.col-sm-5
-						textarea(required).form-control
-				section.form-group
-					label.col-sm-3.control-label Category
-					section.col-sm-5
-						input(type='text', required).form-control#name
-				section.form-group
-					label.col-sm-3.control-label Price
-					section.col-sm-5
-						input(type='text', required).form-control#name
-				section.form-group
-					label.col-sm-3.control-label Photos
-					section.col-sm-5
-						button(type="button").btn Add Photos
-			section.form-group
-				label.col-sm-3.control-label
-				section.col-sm-5
-					section.extender.request-delivery
-						section(data-role="extender-labels")
-							small(data-append="#new-product-form", data-template="1") Add Brochure
-							small(data-append="#new-product-form", data-template="2") Add address
-							small(data-append="#new-product-form", data-template="3") Add contact information
-						section(data-role='extender-templates').hide
-							section(data-template="1")
-								section.form-group
-									label.col-sm-3.control-label Description
-									section.col-sm-5
-										textarea(required).form-control
-							section(data-template="2")
-								section.form-group
-									label.col-sm-3.control-label Description
-									section.col-sm-5
-										textarea(required).form-control
-
+						section.extender.request-delivery
+							section(data-role="extender-labels")
+								small(data-append="#new-product-property-form", data-template="1") Add Property
+							section(data-role='extender-templates').hide
+								section(data-template="1")
+									section.form-group
+										label.col-sm-3.control-label
+										section.col-sm-7
+											input(type='text', placeholder='Property name').form-control
+											section.extender
+												section(data-role="extender-content")
+												section(data-role="extender-labels")
+													small(data-template="1") Add Value
+												section(data-role='extender-templates').hide
+													section(data-template="1")
+														section.row
+															section.col-md-6
+																input(type='text', placeholder='Property value').form-control
+															section.col-md-6
+																input(type='text', placeholder='Property value').form-control
+										
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
